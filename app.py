@@ -1,5 +1,7 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
@@ -7,9 +9,17 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+
+
+mongo = PyMongo(app)
+
+
 @app.route("/")
-def hello():
-    return "Hello World!"
+@app.route("/concert_list")
+def concert_list():
+    return render_template("concerts.html", concerts=mongo.db.artists.find())
 
 
 if __name__ == "__main__":
