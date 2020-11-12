@@ -1,7 +1,87 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>Concert List</h3>
+
+
+<!--Details/Search Section-->
+
+    <section>
+        <div class="container text-center">
+            <h1>Welcome to our Concert Memories Page!</h1>
+            <p>You can view our favourites and also search by Artist, City and Genre.</p>
+            <p>You can edit the content or like a post.</p>
+            <p>To maintain site integrity, you are only able to delete memories/posts you have shared</p>
+            <p>Memories &amp; Posts that you have created are also available on your Profile Page!</p>
+            <br/>
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <form action="">
+                        <div class="row text-center">
+                            <div class="input-field col-sm-12">
+                                <input type="text" placeholder="Search Artist/City/Genre">
+                            </div>
+                            <br/>
+                            <div class="col-sm-12 search-buttons">
+                                <span>
+                                    <button class="btn btn-primary">Search</button>
+                                    <button class="btn btn-secondary">Reset</button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--End of Details/Search Section-->
+
+<!--Memories Section-->
+
+    <section>
+        <h2 class="text-center">Concerts</h2>
         {% for artist in concerts %}
-            <p>{{ artist.artist }}</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="{{ artist.image }}" alt="" class="image-item img-responsive">
+                                <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution"><small>Image under Creative Commons Licence</small></a>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <h3 class="details">{{ artist.artist }}</h3>
+                                <p class="details"><strong>City: </strong>{{ artist.city }}</p>
+                                <p class="details"><strong>Venue: </strong>{{ artist.venue }}</p>
+                                <p class="details"><strong>Date: </strong>{{ artist.date }}</p>
+                                <p class="details"><strong>Album Tour: </strong>{{ artist.album_tour }}</p>
+                                <p class="details"><strong>Genres: </strong>{{ artist.genres }}</p>
+                                <p class="details"><strong> Monthly Spotify Listeners: </strong>{{ artist.spotify_listeners }}</p>
+                                <p class="details"><strong>Set List: </strong>{{ artist.set_list}}</p>
+                                <div>
+                                    <a href="" class="btn btn-primary">Edit</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </div>
+                                <br/>
+                                <div class="list-inline">
+                                    
+                                        <a href="{{ artist.facebook_url}}" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            
+                                    
+                                        <a href="{{ artist.instagram_url}}" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                    
+                                    
+                                        <a href="{{ artist.spotify_url}}" target="_blank"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                                    
+                                    
+                                        <a href="{{ artist.twitter_url}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
         {% endfor %}
+    </section>
 {% endblock %}

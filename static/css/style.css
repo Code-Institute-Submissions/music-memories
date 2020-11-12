@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Hind', sans-serif;
+    text-align: center;
 }
 
 
@@ -33,4 +34,41 @@ p {
 
 .jumbotron {
     background-color: #ffffff;
+}
+
+/*---------------------------Concert Page*/
+
+.search-buttons {
+    margin-top: 10px;
+}
+
+
+.details {
+    text-transform: capitalize;
+}
+
+.image-item {
+    height: 25em;
+    max-width: 100%;
+    padding: 5px;
+}
+
+.image-attribution:link {
+    padding-left: 6px;
+    text-decoration: none;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+/*---------------------------Media Queries*/
+
+@media (max-width: 575.98px) {
+    .image-item {
+        height: 15em;
+        padding: 0px;
+    }
 }
