@@ -1,0 +1,25 @@
+/*---------------------------Import Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Raleway&display=swap');
+
+/*---------------------------Fonts & Text*/
+
+body {
+    font-family: 'Hind', sans-serif;
+}
+
+
+p {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*---------------------------Footer Section*/
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+}
