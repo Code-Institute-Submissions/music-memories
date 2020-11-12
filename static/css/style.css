@@ -23,3 +23,14 @@ p {
     position: fixed;
     bottom: 0;
 }
+
+/*---------------------------Home Page*/
+
+.carousel {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+}
