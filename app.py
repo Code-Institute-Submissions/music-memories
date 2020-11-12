@@ -24,7 +24,8 @@ def home():
 
 @app.route("/concert_list")
 def concert_list():
-    return render_template("concerts.html", concerts=mongo.db.artists.find())
+    concerts = mongo.db.artists.find()
+    return render_template("concerts.html", concerts=concerts)
 
 
 if __name__ == "__main__":
