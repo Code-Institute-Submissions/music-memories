@@ -5,12 +5,14 @@
 <!--Details/Search Section-->
 
     <section>
-        <div class="container text-center">
+        <div class="container intro-text text-center">
             <h1>Welcome to our Concert Memories Page!</h1>
             <p>You can view our favourites and also search by Artist, City and Genre.</p>
             <p>You can edit the content or like a post.</p>
             <p>To maintain site integrity, you are only able to delete memories/posts you have shared</p>
             <p>Memories &amp; Posts that you have created are also available on your Profile Page!</p>
+            <br/>
+            <h2 class="text-center">Search</h2>
             <br/>
             <div class="d-flex justify-content-center">
                 <div class="row">
@@ -32,13 +34,23 @@
             </div>
         </div>
     </section>
+    <br/>
 
 <!--End of Details/Search Section-->
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h3>{{ message }}</h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
 <!--Memories Section-->
 
     <section>
-        <h2 class="text-center">Concerts</h2>
+        <h2 class="text-center concert-header">Concerts</h2>
+        <br/>
         {% for artist in concerts %}
             <div class="container">
                 <div class="row">
@@ -59,7 +71,7 @@
                                 <p class="details"><strong>Set List: </strong>{{ artist.set_list}}</p>
                                 <div>
                                     <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="{{ url_for('delete_artist', artist_id=artist._id) }}" class="btn btn-danger">Delete</a>
                                 </div>
                                 <br/>
                                 <div class="list-inline">
