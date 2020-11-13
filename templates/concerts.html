@@ -41,12 +41,12 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <h3>{{ message }}</h3>
+                <h3 class="flash-message">{{ message }}</h3>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
-<!--Memories Section-->
+<!--Concert Memories Section-->
 
     <section>
         <h2 class="text-center concert-header">Concerts</h2>
@@ -66,9 +66,9 @@
                                 <p class="details"><strong>Venue: </strong>{{ artist.venue }}</p>
                                 <p class="details"><strong>Date: </strong>{{ artist.date }}</p>
                                 <p class="details"><strong>Album Tour: </strong>{{ artist.album_tour }}</p>
+                                <p class="details"><strong>Set List: </strong>{{ artist.set_list}}</p>
                                 <p class="details"><strong>Genres: </strong>{{ artist.genres }}</p>
                                 <p class="details"><strong> Monthly Spotify Listeners: </strong>{{ artist.spotify_listeners }}</p>
-                                <p class="details"><strong>Set List: </strong>{{ artist.set_list}}</p>
                                 <div>
                                     <a href="" class="btn btn-primary">Edit</a>
                                     <a href="{{ url_for('delete_artist', artist_id=artist._id) }}" class="btn btn-danger">Delete</a>
@@ -96,4 +96,7 @@
             <hr>
         {% endfor %}
     </section>
+
+<!--End of Concert Memories Section-->
+
 {% endblock %}

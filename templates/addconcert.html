@@ -5,9 +5,9 @@
 <!--Add Concert Memories Section-->
     <section>
         <div class="container-fluid concert-image">
-            <h2 class="text-center concert-header header-color">Add Concert Memory</h2>
+            <h2 class="text-center intro-text header-color">Add Concert Memory</h2>
             <br/>
-                <form action="" class="add-concert-form">
+                <form method="POST" action={{ url_for('add_concert') }} class="add-concert-form">
                     <div class="form-group row">
                         <!--<label for="artist" class="col-sm-2 col-form-label">Artist</label>-->
                         <div class="col-sm-4 offset-sm-4">
@@ -54,6 +54,20 @@
                     <div class="form-group row">
                         <!--<label for="genres" class="col-sm-2 col-form-label">Genres</label>-->
                         <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="image" id="image"
+                                placeholder="Image Link (Please Use Creative Commons Image)" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="genres" class="col-sm-2 col-form-label">Genres</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="image_attribution" id="image_attribution"
+                                placeholder="Image Attribution Link (Please Use Creative Commons Image)" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="genres" class="col-sm-2 col-form-label">Genres</label>-->
+                        <div class="col-sm-4 offset-sm-4">
                             <input type="text" class="form-control" name="genres" id="genres"
                                 placeholder="Genres" required>
                         </div>
@@ -88,11 +102,12 @@
                     </div>
                     <div class="form-group row">
                         <!--<label for="twitter_url" class="col-sm-2 col-form-label">Artist Twitter Link</label>-->
-                        <div class="col-sm-4 offset-sm-4>
+                        <div class="col-sm-4 offset-sm-4">
                             <input type="text" class="form-control" name="twitter_url" id="twitter_url"
                                 placeholder="Artist Twitter" required>
                         </div>
                     </div>
+                    
                     <br/>
                     <div class="form-group row text-center">
                         <div class="col-sm-12">
@@ -104,4 +119,28 @@
                 </form>
         </div>
     </section>
+
+    <section>
+        <div class="modal text-center" id="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Instructions</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please ensure that any image links you submit are either your own or a 
+                            <a href="https://search.creativecommons.org/" target="_blank">Creative Commons Image</a>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}
