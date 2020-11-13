@@ -16,16 +16,16 @@
             <br/>
             <div class="d-flex justify-content-center">
                 <div class="row">
-                    <form action="">
+                    <form action="{{ url_for('search') }}" method="post">
                         <div class="row text-center">
                             <div class="input-field col-sm-12">
-                                <input type="text" placeholder="Search Artist/City/Genre">
+                                <input type="text" name="query" id="query" class="validate" placeholder="Search Artist/City/Genre" required>
                             </div>
                             <br/>
                             <div class="col-sm-12 search-buttons">
                                 <span>
                                     <button class="btn btn-primary">Search</button>
-                                    <button class="btn btn-secondary">Reset</button>
+                                    <a href={{ url_for("concert_list") }} class="btn btn-secondary">Reset</a>
                                 </span>
                             </div>
                         </div>

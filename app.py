@@ -60,6 +60,14 @@ def add_concert():
     return render_template("addconcert.html")
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    concerts = list(mongo.db.artists.find(
+        {"$text": {"$search": query}}))
+    return render_template("concerts.html", concerts=concerts)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
