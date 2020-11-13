@@ -35,6 +35,11 @@ def delete_artist(artist_id):
     return redirect(url_for("concert_list"))
 
 
+@app.route("/add_concert")
+def add_concert():
+    return render_template("addconcert.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

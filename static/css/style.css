@@ -66,6 +66,28 @@ p {
     margin-right: 0px;
 }
 
+/*---------------------------Add Concert Page*/
+
+.header-color {
+    color: #ffffff;
+}
+
+.concert-image {
+    background-image: url("../images/crowd.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.add-concert-form {
+    opacity: 0.9;
+    text-align: center;
+}
+
+
+
 /*---------------------------Media Queries*/
 
 @media (max-width: 575.98px) {

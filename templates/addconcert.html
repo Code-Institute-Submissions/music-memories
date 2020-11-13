@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!--Add Concert Memories Section-->
+    <section>
+        <div class="container-fluid concert-image">
+            <h2 class="text-center concert-header header-color">Add Concert Memory</h2>
+            <br/>
+                <form action="" class="add-concert-form">
+                    <div class="form-group row">
+                        <!--<label for="artist" class="col-sm-2 col-form-label">Artist</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="artist" id="artist"
+                                placeholder="Artist" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="city" class="col-sm-2 col-form-label">City</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="city" id="city"
+                                placeholder="City" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="venue" class="col-sm-2 col-form-label">Venue</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="venue" id="venue"
+                                placeholder="Venue" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="date" class="col-sm-2 col-form-label">Date</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="date" id="date"
+                                placeholder="Date" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="album_tour" class="col-sm-2 col-form-label">Album Tour</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="album_tour" id="album_tour"
+                                placeholder="Album Tour" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="set_list" class="col-sm-2 col-form-label">Set List:</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <textarea class="form-control" aria-label="With
+                                textarea" rows="5" maxlength="200" name="set_list" id="set_list" placeholder="Set List" required></textarea>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        <!--<label for="genres" class="col-sm-2 col-form-label">Genres</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="genres" id="genres"
+                                placeholder="Genres" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="spotify_listeners" class="col-sm-2 col-form-label">Monthly Spotify Listeners</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="spotify_listeners" id="spotify_listeners"
+                                placeholder="Spotify Listeners" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="facebook_url" class="col-sm-2 col-form-label">Artist Facebook Link</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="facebook_url" id="facebook_url"
+                                placeholder="Artist Facebook" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="instagram_url" class="col-sm-2 col-form-label">Artist Instagram Link</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="instagram_url" id="instagram_url"
+                                placeholder="Artist Instagram" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="spotify_url" class="col-sm-2 col-form-label">Artist Spotify Link</label>-->
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="text" class="form-control" name="spotify_url" id="spotify_url"
+                                placeholder="Artist Spotify" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--<label for="twitter_url" class="col-sm-2 col-form-label">Artist Twitter Link</label>-->
+                        <div class="col-sm-4 offset-sm-4>
+                            <input type="text" class="form-control" name="twitter_url" id="twitter_url"
+                                placeholder="Artist Twitter" required>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="form-group row text-center">
+                        <div class="col-sm-12">
+                            <a href="" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    <br/>
+                </form>
+        </div>
+    </section>
+{% endblock %}
