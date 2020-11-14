@@ -74,6 +74,7 @@ def search():
         return render_template("concerts.html")
 
     else:
+        flash("The following results are available")
         return render_template("concerts.html", concerts=concerts)
 
 
