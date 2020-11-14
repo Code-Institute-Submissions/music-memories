@@ -77,6 +77,34 @@ def search():
         return render_template("concerts.html", concerts=concerts)
 
 
+@app.route("/edit_concert/<artist_id>", methods=["GET", "POST"])
+def edit_concert(artist_id):
+    if request.method == "POST":
+        concert_info = {
+            "artist": request.form.get("artist").title(),
+            "city": request.form.get("city").title(),
+            "venue": request.form.get("venue").title(),
+            "date": request.form.get("date"),
+            "album_tour": request.form.get("album_tour").title(),
+            "set_list": request.form.get("set_list").title(),
+            "genres": request.form.get("genres").title(),
+            "spotify_listeners": request.form.get("spotify_listeners"),
+            "facebook_url": request.form.get("facebook_url"),
+            "instagram_url": request.form.get("instagram_url"),
+            "spotify_url": request.form.get("spotify_url"),
+            "twitter_url": request.form.get("twitter_url"),
+            "image": request.form.get("image"),
+            "image_attribution": request.form.get("image_attribution")
+        }
+        mongo.db.artists.update(
+            {"_id": ObjectId(artist_id)}, concert_info)
+        flash("Thanks for Updating")
+        return redirect(url_for("concert_list"))
+
+    artist = mongo.db.artists.find_one({"_id": ObjectId(artist_id)})
+    return render_template("editconcert.html", artist=artist)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

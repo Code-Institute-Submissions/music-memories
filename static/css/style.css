@@ -99,6 +99,10 @@ p {
     text-align: center;
 }
 
+textarea {
+    resize: none;
+    text-align: justify;
+}
 
 
 /*---------------------------Media Queries*/
