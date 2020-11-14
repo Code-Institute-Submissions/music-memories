@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import Flask, flash, Markup, redirect, render_template, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -62,10 +62,19 @@ def add_concert():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    concerts = list(mongo.db.artists.find(
-        {"$text": {"$search": query}}))
-    return render_template("concerts.html", concerts=concerts)
+    if request.method == "POST":
+        query = request.form.get("query")
+        concerts = list(mongo.db.artists.find(
+            {"$text": {"$search": query}}))
+
+    if not concerts:
+        flash(Markup(
+            'No results found'
+        ))
+        return render_template("concerts.html")
+
+    else:
+        return render_template("concerts.html", concerts=concerts)
 
 
 if __name__ == "__main__":

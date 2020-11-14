@@ -51,6 +51,10 @@ p {
     margin-top: 10px;
 }
 
+.flash-add {
+    display: none;
+}
+
 .details {
     text-transform: capitalize;
 }
