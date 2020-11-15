@@ -7,88 +7,86 @@
         <div class="container-fluid concert-image">
             <h2 class="text-center intro-text header-color">Add Concert Memory</h2>
             <br/>
-                <form method="POST" action={{ url_for('add_concert') }} class="add-concert-form">
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                        <i class="fas fa-user"></i>
-                        <input type="text" class="form-width"  name="artist" id="artist"
-                            placeholder="Artist" required>
+            <form method="POST" action={{ url_for('add_concert') }} class="add-concert-form">
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-width"  name="artist" id="artist"
+                    placeholder="Artist" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-globe-europe"></i>
+                    <input type="text" class="form-width" name="city" id="city"
+                    placeholder="City" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-warehouse"></i>
+                    <input type="text" class="form-width" name="venue" id="venue"
+                    placeholder="Venue" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-calendar-day"></i>
+                    <input type="text" class="form-width" name="date" id="date"
+                    placeholder="Date" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-record-vinyl"></i>
+                    <input type="text" class="form-width" name="album_tour" id="album_tour"
+                    placeholder="Album Tour" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-list"></i>
+                    <textarea class="form-width" aria-label="With
+                    textarea" rows="5" maxlength="400" name="set_list" id="set_list" placeholder="Set List" required></textarea>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-image"></i>
+                    <input type="text" class="form-width" name="image" id="image"
+                    placeholder="Image Link (Please Use Creative Commons Image)" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-camera"></i>
+                    <input type="text" class="form-width" name="image_attribution" id="image_attribution"
+                    placeholder="Image Attribution Link (Please Use Creative Commons Image)" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fas fa-music"></i>
+                    <input type="text" class="form-width" name="genres" id="genres"
+                    placeholder="Genres" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fab fa-spotify"></i>
+                    <input type="text" class="form-width" name="spotify_listeners" id="spotify_listeners"
+                    placeholder="Spotify Listeners" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fab fa-facebook-f"></i>
+                    <input type="text" class="form-width" name="facebook_url" id="facebook_url"
+                    placeholder="Artist Facebook" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fab fa-instagram"></i>
+                    <input type="text" class="form-width" name="instagram_url" id="instagram_url"
+                    placeholder="Artist Instagram" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fab fa-spotify"></i>
+                    <input type="text" class="form-width" name="spotify_url" id="spotify_url"
+                    placeholder="Artist Spotify" required>
+                </div>
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <i class="fab fa-twitter"></i>
+                    <input type="text" class="form-width" name="twitter_url" id="twitter_url"
+                    placeholder="Artist Twitter" required>
+                </div>
+                <br/>
+                <div class="form-group row text-center">
+                    <div class="col-sm-12">
+                        <a href="{{ url_for('concert_list') }}" class="btn btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                        <i class="fas fa-globe-europe"></i>
-                        <input type="text" class="form-width" name="city" id="city"
-                            placeholder="City" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                        <i class="fas fa-warehouse"></i>
-                        <input type="text" class="form-width" name="venue" id="venue"
-                            placeholder="Venue" required>
-                    </div>
-
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                        <i class="fas fa-calendar-day"></i>
-                        <input type="text" class="form-width" name="date" id="date"
-                            placeholder="Date" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fas fa-record-vinyl"></i>
-                            <input type="text" class="form-width" name="album_tour" id="album_tour"
-                                placeholder="Album Tour" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fas fa-list"></i>
-                            <textarea class="form-width" aria-label="With
-                                textarea" rows="5" maxlength="200" name="set_list" id="set_list" placeholder="Set List" required></textarea>
-                    </div>
-                    <br />
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fas fa-image"></i>
-                            <input type="text" class="form-width" name="image" id="image"
-                                placeholder="Image Link (Please Use Creative Commons Image)" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fas fa-camera"></i>
-                            <input type="text" class="form-width" name="image_attribution" id="image_attribution"
-                                placeholder="Image Attribution Link (Please Use Creative Commons Image)" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fas fa-music"></i>
-                            <input type="text" class="form-width" name="genres" id="genres"
-                                placeholder="Genres" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fab fa-spotify"></i>
-                            <input type="text" class="form-width" name="spotify_listeners" id="spotify_listeners"
-                                placeholder="Spotify Listeners" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fab fa-facebook-f"></i>
-                            <input type="text" class="form-width" name="facebook_url" id="facebook_url"
-                                placeholder="Artist Facebook" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fab fa-instagram"></i>
-                            <input type="text" class="form-width" name="instagram_url" id="instagram_url"
-                                placeholder="Artist Instagram" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fab fa-spotify"></i>
-                            <input type="text" class="form-width" name="spotify_url" id="spotify_url"
-                                placeholder="Artist Spotify" required>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2 text-center">
-                            <i class="fab fa-twitter"></i>
-                            <input type="text" class="form-width" name="twitter_url" id="twitter_url"
-                                placeholder="Artist Twitter" required>
-                    </div>
-                    <br/>
-                    <div class="form-group row text-center">
-                        <div class="col-sm-12">
-                            <a href="{{ url_for('concert_list') }}" class="btn btn-danger">Cancel</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                    <br/>
-                </form>
+                </div>
+                <br/>
+            </form>
         </div>
     </section>
 
