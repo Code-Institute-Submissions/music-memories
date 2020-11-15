@@ -7,6 +7,13 @@
             <div class="register-text">
                 <h2 class="text-center header-color">Login</h2>
                 <br/>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <h3 class="flash-message">{{ message }}</h3>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <form method="POST" action= {{ url_for('login') }} class="form-details">
                     <div class="form-group row text-center">
                         <!--<label for="username" class="col-sm-2 col-form label">

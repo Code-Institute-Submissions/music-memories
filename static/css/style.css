@@ -204,6 +204,14 @@ textarea {
         width: 100% !important;
     }
 
+    .fas,
+    .fab {
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px;
+        margin: 5px;
+    }
+
 }
 
 

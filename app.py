@@ -112,6 +112,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
+            flash("This name is taken!")
             return redirect(url_for("register"))
 
         register = {
@@ -121,6 +122,7 @@ def register():
         mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
+        flash("Thank you for registering!")
         return redirect(url_for("concert_list"))
     return render_template("register.html")
 
@@ -139,20 +141,23 @@ def login():
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
+                flash("Something went wrong please try again!")
                 return redirect(url_for("login"))
         else:
+            flash("Something went wrong please try again!")
             return redirect(url_for("login"))
 
     return render_template("login.html")
 
 
-@app.route("/logout")
+@ app.route("/logout")
 def logout():
+    flash("Thanks for visiting. See you soon!")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-@app.route('/profile/<username>', methods=["GET", "POST"])
+@ app.route('/profile/<username>', methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]

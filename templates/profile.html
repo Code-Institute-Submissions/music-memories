@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class="register-text">Hello {{username}}</h1>
+<h1 class="register-text">Hello {{username.title() }}</h1>
+<p>Thank you for signing in</p>
 
 {% endblock %}
