@@ -80,6 +80,12 @@ p {
     color: red;
 }
 
+.small {
+    color: red !important;
+    font-size: 20px !important;
+    display: inline !;
+}
+
 /*---------------------------Add Concert Page*/
 
 .header-color {
@@ -114,6 +120,10 @@ textarea {
     border: solid blue 2px;
     resize: none;
     text-align: justify;
+}
+
+.form-width {
+    width: 50% !important;
 }
 
 /*---------------------------Edit Concert Page*/
@@ -155,12 +165,13 @@ textarea {
     width: 50%;
 }
 
-.fas {
+.fas,
+.fab {
     color: #ffffff;
     font-size: 40px;
     padding: 10px;
     margin: 5px;
-    display: inline;
+    display: block;
 }
 
 .login-text {
@@ -189,9 +200,10 @@ textarea {
         padding: 0px;
     }
 
-    .fas {
-        display: block;
+    .form-width {
+        width: 100% !important;
     }
+
 }
 
 
