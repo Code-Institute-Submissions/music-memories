@@ -166,6 +166,7 @@ textarea {
 .login-text {
     color: #ffffff;
     text-decoration: none;
+    padding-top: 10px;
 }
 
 /*---------------------------Login Page*/
@@ -217,6 +218,11 @@ textarea {
         height: 100%;
     }
 
+    .login-image {
+        background-image: url("../images/login800.jpg");
+        height: 100%;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -241,6 +247,11 @@ textarea {
         height: 100%;
     }
 
+    .login-image {
+        background-image: url("../images/login1200.jpg");
+        height: 100%;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -257,6 +268,11 @@ textarea {
 
     .register-image {
         background-image: url("../images/jimreid2000.jpg");
+        height: 100%;
+    }
+
+    .login-image {
+        background-image: url("../images/login2000.jpg");
         height: 100%;
     }
 
