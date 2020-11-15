@@ -106,6 +106,11 @@ def edit_concert(artist_id):
     return render_template("editconcert.html", artist=artist)
 
 
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

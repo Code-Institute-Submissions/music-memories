@@ -4,7 +4,8 @@
 
 /*---------------------------Fonts & Text*/
 
-body {
+body,
+html {
     font-family: 'Hind', sans-serif;
     text-align: center;
     height: 100%;
@@ -104,6 +105,17 @@ textarea {
     text-align: justify;
 }
 
+input[type=text],
+input[type=password],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border: solid blue 2px;
+    resize: none;
+    text-align: justify;
+}
+
 /*---------------------------Edit Concert Page*/
 
 .edit-image {
@@ -115,15 +127,58 @@ textarea {
     position: relative;
 }
 
+/*---------------------------Register Page*/
 
+.register-image {
+    background-image: url("../images/jimreid2000.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 
+.register-text {
+    padding-top: 100px;
+}
+
+.form-details {
+    padding-top: 100px;
+    padding-bottom: 450px;
+}
+
+#username {
+    width: 50%;
+}
+
+#password {
+    width: 50%;
+}
+
+.fas {
+    color: #ffffff;
+    font-size: 40px;
+    padding: 10px;
+    margin: 5px;
+    display: inline;
+}
+
+.login-text {
+    color: #ffffff;
+    text-decoration: none;
+}
 
 /*---------------------------Media Queries*/
 
 @media (max-width: 575.99px) {
+
     .image-item {
         height: 15em;
         padding: 0px;
+    }
+
+    .fas {
+        display: block;
     }
 }
 
@@ -145,6 +200,12 @@ textarea {
         background-image: url("../images/tropical800.jpg");
         height: 100%;
     }
+
+    .register-image {
+        background-image: url("../images/jimreid800.jpg");
+        height: 100%;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -164,6 +225,11 @@ textarea {
         height: 100%;
     }
 
+    .register-image {
+        background-image: url("../images/jimreid1200.jpg");
+        height: 100%;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -175,6 +241,11 @@ textarea {
 
     .edit-image {
         background-image: url("../images/tropical2000.jpg");
+        height: 100%;
+    }
+
+    .register-image {
+        background-image: url("../images/jimreid2000.jpg");
         height: 100%;
     }
 
