@@ -1,7 +1,8 @@
 import os
-from flask import Flask, flash, Markup, redirect, render_template, request, url_for
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -68,9 +69,7 @@ def search():
             {"$text": {"$search": query}}))
 
     if not concerts:
-        flash(Markup(
-            'No results found'
-        ))
+        flash('No results found')
         return render_template("concerts.html")
 
     else:
@@ -106,9 +105,59 @@ def edit_concert(artist_id):
     return render_template("editconcert.html", artist=artist)
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        session["user"] = request.form.get("username").lower()
+        return redirect(url_for("concert_list"))
     return render_template("register.html")
+
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            if check_password_hash(
+                    existing_user["password"], request.form.get
+                    ("password")):
+                session["user"] = request.form.get("username").lower()
+                return redirect(url_for(
+                    "profile", username=session["user"]))
+            else:
+                return redirect(url_for("login"))
+        else:
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
+@app.route('/profile/<username>', methods=["GET", "POST"])
+def profile(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username,
+                           concerts=mongo.db.artists.find())
+
+    if session["user"]:
+        return render_template("profile.html", username=username,
+                               concerts=mongo.db.artists.find())
+
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

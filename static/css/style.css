@@ -168,6 +168,17 @@ textarea {
     text-decoration: none;
 }
 
+/*---------------------------Login Page*/
+
+.login-image {
+    background-image: url("../images/login2000.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 /*---------------------------Media Queries*/
 
 @media (max-width: 575.99px) {
