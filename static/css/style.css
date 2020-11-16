@@ -12,7 +12,6 @@ html {
     position: relative;
 }
 
-
 p {
     font-family: 'Raleway', sans-serif;
 }
@@ -80,11 +79,11 @@ p {
 }
 
 .flash-message {
-    color: red;
+    color: #FF0000;
 }
 
 .small {
-    color: red !important;
+    color: #FF0000 !important;
     font-size: 20px !important;
     display: inline !important;
 }
@@ -120,7 +119,7 @@ textarea {
     width: 100%;
     padding: 10px;
     margin: 5px;
-    border: solid blue 2px;
+    border: solid #0000FF 2px;
     resize: none;
     text-align: justify;
 }
@@ -194,8 +193,6 @@ textarea {
     position: relative;
 }
 
-/*---------------------------Login Page*/
-
 .profile-add {
     display: none;
 }
@@ -227,8 +224,6 @@ textarea {
     }
 
 }
-
-
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
 
