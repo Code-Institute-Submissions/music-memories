@@ -182,6 +182,10 @@ textarea {
     padding-top: 10px;
 }
 
+.flash-message-white {
+    color: #ffffff;
+}
+
 /*---------------------------Login Page*/
 
 .login-image {

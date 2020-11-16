@@ -153,7 +153,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("This name is taken!")
+            flash("This profile is reserved, please try another combination!")
             return redirect(url_for("register"))
 
         register = {
