@@ -17,7 +17,7 @@
     
     <section>
         {% for artist in artist_list %}
-            {% if session.user|lower == artist.created_by|lower %}
+            {% if session.user|lower == artist.created_by|lower or session.user|lower == artist.edited_by|lower %}
                 <div class="container" id="artist-lists-profile">
                     <br/>
                     <div class="row">
