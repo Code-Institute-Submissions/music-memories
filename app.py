@@ -25,8 +25,8 @@ def home():
 
 @app.route("/concert_list")
 def concert_list():
-    concerts = mongo.db.artists.find()
-    return render_template("concerts.html", concerts=concerts)
+    artists = mongo.db.artists.find()
+    return render_template("concerts.html", artists=artists)
 
 
 @app.route("/delete/<artist_id>")
@@ -61,20 +61,31 @@ def add_concert():
     return render_template("addconcert.html")
 
 
+@app.route("/add_like/<artist_id>", methods=["POST", "GET"])
+def add_like(artist_id):
+    if request.method == "POST":
+        mongo.db.artists.find_one_and_update(
+            {"_id": ObjectId(artist_id)},
+            {"$inc": {"like": 1}}
+        )
+        flash("Thanks for your like!")
+        return redirect(url_for("concert_list"))
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
         query = request.form.get("query")
-        concerts = list(mongo.db.artists.find(
+        artists = list(mongo.db.artists.find(
             {"$text": {"$search": query}}))
 
-    if not concerts:
+    if not artists:
         flash('No results found')
         return render_template("concerts.html")
 
     else:
         flash("The following results are available")
-        return render_template("concerts.html", concerts=concerts)
+        return render_template("concerts.html", artists=artists)
 
 
 @app.route("/edit_concert/<artist_id>", methods=["GET", "POST"])
