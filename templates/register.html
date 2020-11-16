@@ -2,6 +2,7 @@
 {% block content %}
 
 <!--Registration Section-->
+
     <section>
         <div class="register-image">
             <div class="register-text">
@@ -9,8 +10,6 @@
                 <br/>
                 <form method="POST" action= {{ url_for('register') }} class="form-details">
                     <div class="form-group row text-center">
-                        <!--<label for="username" class="col-sm-2 col-form label">
-                        </label>-->
                         <div class="col-sm-8 offset-sm-2 text-center">
                             <i class="fas fa-user"></i>
                             <input type="text" class="validate" id="username"
@@ -19,8 +18,6 @@
                         </div>
                     </div>
                     <div class="form-group row text-center">
-                        <!--<label for="password" class="col-sm-2 col-form-label">
-                        </label>-->
                         <div class="col-sm-8 offset-sm-2 text-center">
                             <i class="fas fa-unlock"></i>
                             <input type="password" class="validate" id="password"
@@ -33,11 +30,13 @@
                             <button type="submit" class="btn btn-primary">Register</button>
                             <br/>
                             <p class="login-text">If you have previously registered <a href="{{ url_for("login") }}">Login here</a></p>
-                            
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+<!--End of Register Section-->
+
 {% endblock %}

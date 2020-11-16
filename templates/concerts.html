@@ -9,7 +9,7 @@
             <h1>Welcome to our Concert Memories Page!</h1>
             <p>You can view our favourites and also search by Artist, City and Genre.</p>
             <p>You can edit the content or like a post.</p>
-            <p>To maintain site integrity, you are only able to delete memories/posts you have shared</p>
+            <p>To maintain site integrity, you are only able to delete Memories &amp; Posts you have shared.</p>
             <p>Memories &amp; Posts that you have created are also available on your Profile Page!</p>
             <br/>
             <h2 class="text-center">Search</h2>
@@ -38,6 +38,8 @@
 
 <!--End of Details/Search Section-->
 
+<!--Flash Message Section-->
+
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -46,6 +48,8 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
+
+<!--End of Flash Message Section-->
 
 <!--Concert Memories Section-->
 
@@ -60,7 +64,9 @@
                             <div class="col-sm-6">
                                 <img src="{{ artist.image }}" alt="" class="image-item img-responsive">
                                 <br/>
-                                <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution"><small>Image under Creative Commons Licence</small></a>
+                                <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution">
+                                    <small>Image under Creative Commons Licence</small>
+                                </a>
                             </div>
                             <div class="col-sm-6 text-center">
                                 <h3 class="details">{{ artist.artist }}</h3>
@@ -87,18 +93,18 @@
                                 </div>
                                 <br/>
                                 <div class="list-inline">
-                                    
-                                        <a href="{{ artist.facebook_url}}" target="_blank"><i class="fab fa-facebook small" aria-hidden="true"></i></a>
-                            
-                                    
-                                        <a href="{{ artist.instagram_url}}" target="_blank"><i class="fab fa-instagram small" aria-hidden="true"></i></a>
-                                    
-                                    
-                                        <a href="{{ artist.spotify_url}}" target="_blank"><i class="fab fa-spotify small" aria-hidden="true"></i></a>
-                                    
-                                    
-                                        <a href="{{ artist.twitter_url}}" target="_blank"><i class="fab fa-twitter small" aria-hidden="true"></i></a>
-                                    
+                                    <a href="{{ artist.facebook_url}}" target="_blank">
+                                        <i class="fab fa-facebook small" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ artist.instagram_url}}" target="_blank">
+                                        <i class="fab fa-instagram small" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ artist.spotify_url}}" target="_blank">
+                                        <i class="fab fa-spotify small" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ artist.twitter_url}}" target="_blank">
+                                        <i class="fab fa-twitter small" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

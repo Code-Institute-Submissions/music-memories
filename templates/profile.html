@@ -1,26 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <!--<h1 class="register-text profile-add">Hello {{username.title() }}</h1>-->
-    <h1 class="profile-with-details">Welcome {{username.title() }}!</h1>
-    <p class="profile-add">Thank you for registering.</p>
-    <p class="profile-add">It looks like you haven't added any Concert Memories yet!</p>
-    <a href="{{ url_for('add_concert') }}" class="btn btn-primary profile-add ">Add Concert</a>
+<!--Intro Section-->
+
+    <section>
+        <h1 class="profile-with-details">Welcome {{username.title() }}!</h1>
+        <p class="profile-add">Thank you for registering.</p>
+        <p class="profile-add">It looks like you haven't added any Concert Memories yet!</p>
+        <a href="{{ url_for('add_concert') }}" class="btn btn-primary profile-add ">Add Concert</a>
+    </section>
     <br/>
+
+<!--End of Intro Section-->
+
+<!--Profile Concert Memories Section-->
     
-        <section>
-            {% for artist in artist_list %}
-                {% if session.user|lower == artist.created_by|lower %}
-                    <div class="container" id="artist-lists-profile">
-                        <h2 class="text-center">Your Concert Memories:</h2>
-                        <br/>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img src="{{ artist.image }}" alt="" class="image-item img-responsive">
-                                        <br/>
-                                        <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution"><small>Image under Creative Commons Licence</small></a>
+    <section>
+        {% for artist in artist_list %}
+            {% if session.user|lower == artist.created_by|lower %}
+                <div class="container" id="artist-lists-profile">
+                    <h2 class="text-center">Your Concert Memories:</h2>
+                    <br/>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <img src="{{ artist.image }}" alt="" class="image-item img-responsive">
+                                    <br/>
+                                    <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution">
+                                        <small>Image under Creative Commons Licence</small>
+                                    </a>
                                     </div>
                                     <div class="col-sm-6 text-center">
                                         <h3 class="details">{{ artist.artist }}</h3>
@@ -45,18 +54,18 @@
                                         </div>
                                         <br/>
                                         <div class="list-inline">
-                                            
-                                                <a href="{{ artist.facebook_url}}" target="_blank"><i class="fab fa-facebook small" aria-hidden="true"></i></a>
-                                    
-                                            
-                                                <a href="{{ artist.instagram_url}}" target="_blank"><i class="fab fa-instagram small" aria-hidden="true"></i></a>
-                                            
-                                            
-                                                <a href="{{ artist.spotify_url}}" target="_blank"><i class="fab fa-spotify small" aria-hidden="true"></i></a>
-                                            
-                                            
-                                                <a href="{{ artist.twitter_url}}" target="_blank"><i class="fab fa-twitter small" aria-hidden="true"></i></a>
-                                            
+                                            <a href="{{ artist.facebook_url}}" target="_blank">
+                                                <i class="fab fa-facebook small" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ artist.instagram_url}}" target="_blank">
+                                                <i class="fab fa-instagram small" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ artist.spotify_url}}" target="_blank">
+                                                <i class="fab fa-spotify small" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ artist.twitter_url}}" target="_blank">
+                                                <i class="fab fa-twitter small" aria-hidden="true"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,8 +73,11 @@
                         </div>
                     </div>
                     <hr>
-                {% endif %}
-            {% endfor %}
-        </section>
-    
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+<!--End of Profile Concert Memories Section-->
+
 {% endblock %}

@@ -5,7 +5,7 @@
 
     <section>
         <div class="container carousel">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="4000">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -45,8 +45,8 @@
                 <p>Thank you for visiting our site.</p>
                 <p>Please note that you must register or login to proceed.<p>
                 <div>
-                    <a href="{{ url_for("register") }}" class="btn btn-secondary">Register</a>
                     <a href="{{ url_for("login") }}" class="btn btn-primary">Login</a>
+                    <a href="{{ url_for("register") }}" class="btn btn-secondary">Register</a>
                 </div>
             </div>
         </div>
