@@ -7,9 +7,8 @@
     <section>
         <div class="container intro-text text-center">
             <h1>Welcome to our Concert Memories Page!</h1>
-            <p>You can view our favourites and also search by Artist, City and Genre.</p>
-            <p>You can edit the content or like a post.</p>
-            <p>To maintain site integrity, you are only able to delete Memories &amp; Posts you have shared.</p>
+            <p>You can view and like our users favourites and also search by Artist, City and Genre.</p>
+            <p>To maintain site integrity, you are only able to edit &amp; delete Concert Memories you have shared.</p>
             <p>Memories &amp; Posts that you have created are also available on your Profile Page!</p>
             <br/>
             <h2 class="text-center">Search</h2>
@@ -79,9 +78,9 @@
                                 <p class="details"><strong> Monthly Spotify Listeners: </strong>{{ artist.spotify_listeners }}</p>
                                 <p class="details"><strong>Edited by: </strong>{{ artist.created_by }} {{ artist.created_on }} {{ artist.edited_by }} {{ artist.edited_on }}</p>
                                 <div>
-                                    <a href="{{ url_for('edit_concert', artist_id=artist._id) }}" class="btn btn-primary">Edit</a>
                                     {% if session.user|lower == artist.created_by|lower %}
-                                        <a href="{{ url_for('delete_artist', artist_id=artist._id) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ url_for('edit_concert', artist_id=artist._id) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ url_for('delete_artist', artist_id=artist._id) }}" class="btn btn-danger">Delete</a>
                                     {% endif %}
                                 </div>
                                 <br/>
