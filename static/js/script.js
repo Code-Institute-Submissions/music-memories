@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     // Date Selector
+
     $("#date").datepicker({
         changeMonth: true,
         changeYear: true,
@@ -9,16 +10,19 @@ $(document).ready(function () {
     });
 
     // Modal Display
+
     $("#modal").modal('show');
 
-
     // Search Results
+
     var list = $("#artist-lists").length;
     console.log(list);
     if (list < 1) {
         $(".concert-header").hide();
         $(".flash-add").removeClass("flash-add");
     }
+
+    // Profile Text Section
 
     var profList = $("#artist-lists-profile").length;
     console.log(profList);
