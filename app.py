@@ -73,7 +73,7 @@ def add_concert():
             "image": request.form.get("image"),
             "image_attribution": request.form.get("image_attribution"),
             "created_by": session["user"].title(),
-            "created_on": datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+            "created_on": datetime.now().strftime("%d/%m/%Y, %H:%M:%S"),
         }
         mongo.db.artists.insert_one(concert)
         flash("Thank you for adding your Concert Memory")
@@ -131,7 +131,9 @@ def edit_concert(artist_id):
             "spotify_url": request.form.get("spotify_url"),
             "twitter_url": request.form.get("twitter_url"),
             "image": request.form.get("image"),
-            "image_attribution": request.form.get("image_attribution")
+            "image_attribution": request.form.get("image_attribution"),
+            "edited_by": session["user"].title(),
+            "edited_on": datetime.now().strftime("%d/%m/%Y, %H:%M:%S"),
         }
         mongo.db.artists.update(
             {"_id": ObjectId(artist_id)}, concert_info)
