@@ -6,7 +6,10 @@
     <section>
         <h1 class="profile-with-details">Welcome {{username.title() }}!</h1>
         <p class="profile-add">Thank you for registering.</p>
-        <p class="profile-add">It looks like you haven't added any Concert Memories yet!</p>
+        <p class="profile-add">It looks like you haven't added any Concert Memories</p>
+        <p class="profile-add">Or else someone has edited your previous submission</p>
+        <p class="profile-add">Concerts created by you (prior to another user editing them) will appear here</p>
+        <p class="profile-add">Concerts you select and edit <a href="{{ url_for('concert_list') }}">here</a> will display on this page</p>
         <a href="{{ url_for('add_concert') }}" class="btn btn-primary profile-add ">Add Concert</a>
     </section>
     <br/>
