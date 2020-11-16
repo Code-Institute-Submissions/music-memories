@@ -1,3 +1,11 @@
+"""
+This is a Python App Route for Music Memories Website.
+The Flask Web Application Framework is utilized.
+This App was created by David Connaughton.
+"""
+
+# Import Packages
+
 import os
 from datetime import datetime
 from flask import Flask, flash, redirect, render_template, request, session, url_for
@@ -8,8 +16,9 @@ if os.path.exists("env.py"):
     import env
 
 
-app = Flask(__name__)
+# App Initialization
 
+app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -18,11 +27,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Home Page Route
+
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
 
+
+# Concert Page Route
 
 @app.route("/concert_list")
 def concert_list():
@@ -30,12 +43,16 @@ def concert_list():
     return render_template("concerts.html", artists=artists)
 
 
+# Delete Concert Memory Route
+
 @app.route("/delete/<artist_id>")
 def delete_artist(artist_id):
     mongo.db.artists.remove({"_id": ObjectId(artist_id)})
     flash("You have deleted a Concert")
     return redirect(url_for("concert_list"))
 
+
+# Add Concert Memory Route
 
 @app.route("/add_concert", methods=["GET", "POST"])
 def add_concert():
@@ -64,6 +81,8 @@ def add_concert():
     return render_template("addconcert.html")
 
 
+# Add a Like Route
+
 @app.route("/add_like/<artist_id>", methods=["POST", "GET"])
 def add_like(artist_id):
     if request.method == "POST":
@@ -74,6 +93,8 @@ def add_like(artist_id):
         flash("Thanks for your like!")
         return redirect(url_for("concert_list"))
 
+
+# Search Route
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -90,6 +111,8 @@ def search():
         flash("The following results are available")
         return render_template("concerts.html", artists=artists)
 
+
+# Edit Concert Memory Route
 
 @app.route("/edit_concert/<artist_id>", methods=["GET", "POST"])
 def edit_concert(artist_id):
@@ -119,6 +142,8 @@ def edit_concert(artist_id):
     return render_template("editconcert.html", artist=artist)
 
 
+# Register Route
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -140,6 +165,8 @@ def register():
         return redirect(url_for("concert_list"))
     return render_template("register.html")
 
+
+# Login Route
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
@@ -164,12 +191,16 @@ def login():
     return render_template("login.html")
 
 
+# Logout Route
+
 @ app.route("/logout")
 def logout():
     flash("Thanks for visiting. See you soon!")
     session.pop("user")
     return redirect(url_for("login"))
 
+
+# User Profile Route
 
 @ app.route('/profile/<username>', methods=["GET", "POST"])
 def profile(username):
@@ -182,6 +213,8 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
+# Local Environment Path
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
