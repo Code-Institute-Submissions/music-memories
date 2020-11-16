@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -53,7 +54,9 @@ def add_concert():
             "spotify_url": request.form.get("spotify_url"),
             "twitter_url": request.form.get("twitter_url"),
             "image": request.form.get("image"),
-            "image_attribution": request.form.get("image_attribution")
+            "image_attribution": request.form.get("image_attribution"),
+            "created_by": session["user"].title(),
+            "created_on": datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
         }
         mongo.db.artists.insert_one(concert)
         flash("Thank you for adding your Concert Memory")
