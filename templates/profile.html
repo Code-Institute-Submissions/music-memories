@@ -1,7 +1,71 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class="register-text">Hello {{username.title() }}</h1>
-<p>Thank you for signing in</p>
-
+    <!--<h1 class="register-text profile-add">Hello {{username.title() }}</h1>-->
+    <h1 class="profile-with-details">Welcome {{username.title() }}!</h1>
+    <p class="profile-add">Thank you for registering.</p>
+    <p class="profile-add">It looks like you haven't added any Concert Memories yet!</p>
+    <a href="{{ url_for('add_concert') }}" class="btn btn-primary profile-add ">Add Concert</a>
+    <br/>
+    
+        <section>
+            {% for artist in artist_list %}
+                {% if session.user|lower == artist.created_by|lower %}
+                    <div class="container" id="artist-lists-profile">
+                        <h2 class="text-center">Your Concert Memories:</h2>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="{{ artist.image }}" alt="" class="image-item img-responsive">
+                                        <br/>
+                                        <a href="{{ artist.image_attribution }}" target="_blank" class="image-attribution"><small>Image under Creative Commons Licence</small></a>
+                                    </div>
+                                    <div class="col-sm-6 text-center">
+                                        <h3 class="details">{{ artist.artist }}</h3>
+                                        <p class="details"><strong>City: </strong>{{ artist.city }}</p>
+                                        <p class="details"><strong>Venue: </strong>{{ artist.venue }}</p>
+                                        <p class="details"><strong>Date: </strong>{{ artist.date }}</p>
+                                        <p class="details"><strong>Album Tour: </strong>{{ artist.album_tour }}</p>
+                                        <p class="details"><strong>Set List: </strong>{{ artist.set_list}}</p>
+                                        <p class="details"><strong>Genres: </strong>{{ artist.genres }}</p>
+                                        <p class="details"><strong> Monthly Spotify Listeners: </strong>{{ artist.spotify_listeners }}</p>
+                                        <p class="details"><strong>Created by: </strong>{{ artist.created_by }} {{ artist.created_on }}</p>
+                                        <div>
+                                            <a href="{{ url_for('edit_concert', artist_id=artist._id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ url_for('delete_artist', artist_id=artist._id) }}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                        <br/>
+                                        <div>
+                                            <form method="POST" action="{{ url_for('add_like', artist_id=artist._id) }}">
+                                                <button type="submit" class="like-button" placeholder="fa-icon"><i class="far fa-heart small"></i></button>
+                                                <span class="count">Likes {{ artist.like }}</span>
+                                            </form>
+                                        </div>
+                                        <br/>
+                                        <div class="list-inline">
+                                            
+                                                <a href="{{ artist.facebook_url}}" target="_blank"><i class="fab fa-facebook small" aria-hidden="true"></i></a>
+                                    
+                                            
+                                                <a href="{{ artist.instagram_url}}" target="_blank"><i class="fab fa-instagram small" aria-hidden="true"></i></a>
+                                            
+                                            
+                                                <a href="{{ artist.spotify_url}}" target="_blank"><i class="fab fa-spotify small" aria-hidden="true"></i></a>
+                                            
+                                            
+                                                <a href="{{ artist.twitter_url}}" target="_blank"><i class="fab fa-twitter small" aria-hidden="true"></i></a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </section>
+    
 {% endblock %}

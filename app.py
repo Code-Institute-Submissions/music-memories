@@ -175,12 +175,10 @@ def logout():
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username,
-                           concerts=mongo.db.artists.find())
+    return render_template("profile.html", username=username, artist_list=mongo.db.artists.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username,
-                               concerts=mongo.db.artists.find())
+        return render_template("profile.html", username=username, artist_list=mongo.db.artists.find())
 
     return redirect(url_for("login"))
 

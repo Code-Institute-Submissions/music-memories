@@ -14,9 +14,16 @@ $(document).ready(function () {
 
     // Search Results
     var list = $("#artist-lists").length;
-
+    console.log(list);
     if (list < 1) {
         $(".concert-header").hide();
-        $(".flash-add").removeClass('flash-add');
+        $(".flash-add").removeClass("flash-add");
+    }
+
+    var profList = $("#artist-lists-profile").length;
+    console.log(profList);
+    if (profList < 1) {
+        $(".profile-add").removeClass("profile-add");
+        $(".profile-with-details").addClass("profile-with-details");
     }
 })

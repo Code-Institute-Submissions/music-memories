@@ -194,6 +194,17 @@ textarea {
     position: relative;
 }
 
+/*---------------------------Login Page*/
+
+.profile-add {
+    display: none;
+}
+
+.profile-with-details {
+    display: show;
+    padding-top: 100px;
+}
+
 /*---------------------------Media Queries*/
 
 @media (max-width: 575.99px) {
