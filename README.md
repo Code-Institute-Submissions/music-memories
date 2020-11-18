@@ -78,7 +78,7 @@ Please take the following steps.
 * Create a Virtual Environment by typing:
     python3 -m venv .venv
 * In Terminal type:
-$ git clone https://github.com/david-connaughton/music-mermories
+$ git clone https://github.com/david-connaughton/music-memories
 *  The project files will now display inside a folder called "music memories".
 * Select all Folders & Files within "music memories" and move them to your project directory.
 * In Terminal type:
